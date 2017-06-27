@@ -2,7 +2,12 @@
 
 Reactのチュートリアル進める
 
-## 進捗
+## 実行方法
+1. このリポジトリをgit cloneする
+2. ```npm install```
+3. ```npm start```
+
+# 進捗
 基本機能の実装終わり
 
 ## 今後の予定
@@ -13,3 +18,4 @@ Reactのチュートリアル進める
 3. Rewrite Board to use two loops to make the squares instead of hardcoding them.
 4. Add a toggle button that lets you sort the moves in either ascending or descending order.
 5. When someone wins, highlight the three squares that caused the win.
+
