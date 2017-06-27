@@ -98,9 +98,15 @@ class Game extends React.Component {
     const current = history[this.state.stepNumber];
     const winner =  calculateWinner(current.squares);
 
-    const moves = history.map((step, move) => {
+    const moves = history.map((step, move, hist) => {
+      const diffPos = move ?
+        checkPosDiff(hist[move-1].squares, step.squares) :
+        void 0;
+      const x = 1 + diffPos % 3;
+      const y = 1 + Math.floor(diffPos / 3);
+      
       const desc = move ?
-        'Move #' + move :
+        'Move (' + x + ', ' + y + ')' :
         'Game start';
       return (
         <li key={move}>
@@ -138,6 +144,18 @@ ReactDOM.render(
   <Game />,
   document.getElementById('root')
 );
+
+function checkPosDiff(before, after) {
+  if(before == null || after == null) {
+    return;
+  }
+  for (let i = 0; i < before.length; ++i) {
+    if (before[i] !== after[i]) {
+      return i;
+    }
+  }
+  return;
+}
 
 function calculateWinner(squares) {
   const lines = [
