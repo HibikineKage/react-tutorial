@@ -1,3 +1,15 @@
 # react-tutorial
 
 Reactのチュートリアル進める
+
+## 進捗
+基本機能の実装終わり
+
+## 今後の予定
+追加課題を実装する
+
+1. Display the move locations in the format "(1, 3)" instead of "6".
+2. Bold the currently-selected item in the move list.
+3. Rewrite Board to use two loops to make the squares instead of hardcoding them.
+4. Add a toggle button that lets you sort the moves in either ascending or descending order.
+5. When someone wins, highlight the three squares that caused the win.
