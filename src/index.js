@@ -104,13 +104,13 @@ class Game extends React.Component {
         void 0;
       const x = 1 + diffPos % 3;
       const y = 1 + Math.floor(diffPos / 3);
-      
+
       const desc = move ?
         'Move (' + x + ', ' + y + ')' :
         'Game start';
       return (
         <li key={move}>
-          <a href="#" onClick={() => this.jumpTo(move)}>{desc}</a>
+          <a onClick={() => this.jumpTo(move)}>{desc}</a>
         </li>
       );
     });
