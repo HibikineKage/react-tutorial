@@ -53,8 +53,13 @@ export default class Game extends React.Component {
       const desc = move ?
         'Move (' + x + ', ' + y + ')' :
         'Game start';
+
+      const isBold = this.state.stepNumber === move ?
+        'bold' :
+        'not-bold';
+
       return (
-        <li key={move}>
+        <li className={isBold} key={move}>
           <a onClick={() => this.jumpTo(move)}>{desc}</a>
         </li>
       );
