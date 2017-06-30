@@ -73,6 +73,10 @@ export default class Game extends React.Component {
       );
     });
 
+    const sortedMoves = this.state.isAscending ?
+      moves :
+      moves.reverse();
+
     let status;
     if (winner) {
       status = 'Winner: ' + winner;
@@ -93,7 +97,7 @@ export default class Game extends React.Component {
             isAscending={this.state.isAscending}
             onClick={() => this.toggleIsAscending()}
           />
-          <ol>{moves}</ol>
+          <ol>{sortedMoves}</ol>
         </div>
       </div>
     );
