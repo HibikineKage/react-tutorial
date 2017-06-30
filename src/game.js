@@ -56,7 +56,7 @@ export default class Game extends React.Component {
 
       const isBold = this.state.stepNumber === move ?
         'bold' :
-        'not-bold';
+        '';
 
       return (
         <li className={isBold} key={move}>
