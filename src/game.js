@@ -1,6 +1,7 @@
 import React from 'react';
 import Board from './board.js'
 import calculateWinner from './calculateWinner.js'
+import Toggle from './toggle.js'
 
 export default class Game extends React.Component {
   constructor() {
@@ -11,6 +12,7 @@ export default class Game extends React.Component {
       }],
       stepNumber: 0,
       xIsNext: true,
+      isAscending: true,
     };
   }
 
@@ -35,6 +37,12 @@ export default class Game extends React.Component {
     this.setState({
       stepNumber: step,
       xIsNext: (step % 2) ? false : true,
+    })
+  }
+
+  toggleIsAscending() {
+    this.setState({
+      isAscending: !this.state.isAscending,
     })
   }
 
@@ -81,6 +89,10 @@ export default class Game extends React.Component {
         </div>
         <div className="game-info">
           <div>{status}</div>
+          <Toggle
+            isAscending={this.state.isAscending}
+            onClick={() => this.toggleIsAscending()}
+          />
           <ol>{moves}</ol>
         </div>
       </div>
