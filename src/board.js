@@ -17,6 +17,7 @@ export default class Board extends React.Component {
       value={this.props.squares[i]}
       onClick={() => this.props.onClick(i)}
       isWin={isWin}
+      key={"square-" + i}
     />;
   }
 
@@ -40,9 +41,11 @@ export default class Board extends React.Component {
 
     return (
       <div>
-        {array.map((row) => {
+        {array.map((row, num) => {
           return (
-            <div className="board-row">
+            <div
+              className="board-row"
+              key={"row-" + num}>
               {row.map((i) => {
                 return this.renderSquare(i);
               })}
