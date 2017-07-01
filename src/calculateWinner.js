@@ -14,7 +14,7 @@ export default function calculateWinner(squares) {
   if (line != null) {
     return squares[line[0]];
   }
-  return null;
+  return;
 }
 
 export function calculateLine(squares) {
@@ -23,5 +23,5 @@ export function calculateLine(squares) {
       return [a, b, c];
     }
   }
-  return null;
+  return;
 }
