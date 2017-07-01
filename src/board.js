@@ -1,6 +1,5 @@
 import React from 'react';
 import Square from './square.js'
-import calculateWinner from './calculateWinner'
 
 export default class Board extends React.Component {
   constructor() {
