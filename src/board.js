@@ -12,7 +12,6 @@ export default class Board extends React.Component {
   }
 
   renderSquare(i, line) {
-    const isWin = false; // TODO 勝っているかどうかthis.props.lineと比較
     return <Square
       value={this.props.squares[i]}
       onClick={() => this.props.onClick(i)}
