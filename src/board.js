@@ -1,5 +1,6 @@
 import React from 'react';
 import Square from './square.js'
+import calculateLine from './calculateLine.js'
 
 export default class Board extends React.Component {
   constructor() {
@@ -10,18 +11,18 @@ export default class Board extends React.Component {
     };
   }
 
-  renderSquare(i) {
+  renderSquare(i, line) {
     const isWin = false; // TODO 勝っているかどうかthis.props.lineと比較
     return <Square
       value={this.props.squares[i]}
       onClick={() => this.props.onClick(i)}
-      isWin={isWin}
+      isWin={
+        -1 < line.indexOf(i) ?
+          true:
+          false
+      }
       key={"square-" + i}
     />;
-  }
-
-  renderRow(row) {
-
   }
 
   render() {
@@ -38,6 +39,11 @@ export default class Board extends React.Component {
       array.push(row);
     }
 
+    /* 勝った時に、その勝った場所のラインが返る
+     * まだ勝負がついてない時は空配列を返す
+     * ex) [2, 4, 6] */
+    const line = calculateLine(this.props.squares) || [];
+
     return (
       <div>
         {array.map((row, num) => {
@@ -46,7 +52,7 @@ export default class Board extends React.Component {
               className="board-row"
               key={"row-" + num}>
               {row.map((i) => {
-                return this.renderSquare(i);
+                return this.renderSquare(i, line);
               })}
             </div>
           )
